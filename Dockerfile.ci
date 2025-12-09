@@ -4,10 +4,14 @@ WORKDIR /app
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
-# Copy pre-built artifacts
-COPY public ./public
-COPY standalone ./
-COPY static ./.next/static
+# Copy standalone files (using artifacts directory to avoid .dockerignore issues)
+COPY artifacts/standalone/ ./
+
+# Copy static assets
+COPY artifacts/static/ ./.next/static/
+
+# Copy public assets
+COPY artifacts/public/ ./public/
 
 RUN chown -R nextjs:nodejs /app
 USER nextjs

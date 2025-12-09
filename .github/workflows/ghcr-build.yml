@@ -59,19 +59,24 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: standalone
-          path: standalone
+          path: artifacts/standalone
 
       - name: Download Static
         uses: actions/download-artifact@v4
         with:
           name: static
-          path: static
+          path: artifacts/static
 
       - name: Download Public
         uses: actions/download-artifact@v4
         with:
           name: public
-          path: public
+          path: artifacts/public
+
+      - name: Debug Artifacts
+        run: |
+          ls -R artifacts
+          ls -la artifacts/standalone/.next || echo ".next not found in standalone"
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
