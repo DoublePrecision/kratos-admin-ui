@@ -19,6 +19,7 @@ import { uiLogger } from '@/lib/logger';
 import {
   TelWidget,
   TextWidget,
+  SelectWidget,
   FieldTemplate,
   ObjectFieldTemplate,
   SubmitButton,
@@ -52,6 +53,7 @@ export const IdentityEditModal: React.FC<IdentityEditModalProps> = ({ open, onCl
     () => ({
       tel: TelWidget,
       TextWidget: TextWidget,
+      SelectWidget: SelectWidget,
       text: TextWidget,
       email: TextWidget,
     }),
