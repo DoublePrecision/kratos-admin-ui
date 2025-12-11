@@ -1,6 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { Identity } from '@ory/kratos-client';
-import { ActionBar, Alert, Box, Chip, Dialog, DialogActions, DialogContent, Spinner, Typography } from '@/components/ui';
+import {
+  ActionBar,
+  Alert,
+  Box,
+  Chip,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  Spinner,
+  Typography,
+} from '@/components/ui';
 import Form from '@rjsf/mui';
 import validator from '@rjsf/validator-ajv8';
 import { useUpdateIdentity } from '../hooks/useIdentities';
@@ -9,6 +19,7 @@ import { uiLogger } from '@/lib/logger';
 import {
   TelWidget,
   TextWidget,
+  SelectWidget,
   FieldTemplate,
   ObjectFieldTemplate,
   SubmitButton,
@@ -42,6 +53,7 @@ export const IdentityEditModal: React.FC<IdentityEditModalProps> = ({ open, onCl
     () => ({
       tel: TelWidget,
       TextWidget: TextWidget,
+      SelectWidget: SelectWidget,
       text: TextWidget,
       email: TextWidget,
     }),
